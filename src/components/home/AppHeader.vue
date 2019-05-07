@@ -1,11 +1,14 @@
 <template>
   <div>
     <header class="header">
-      <div class="title myblog">
-        <router-link :to="{name:'myblog'}"><span>博客总览</span></router-link>
-      </div>
-      <div class="title addblog">
-        <router-link :to="{name:'addblog'}"><span>添加博客</span></router-link>
+      <!--<div class="title myblog">-->
+        <!--<router-link :to="{name:'myblog'}"><span>博客总览</span></router-link>-->
+      <!--</div>-->
+      <!--<div class="title addblog">-->
+        <!--<router-link :to="{name:'addblog'}"><span>添加博客</span></router-link>-->
+      <!--</div>-->
+      <div class="title release">
+        <router-link :to="{name:'release'}"><span>查询/解除绑定</span></router-link>
       </div>
     </header>
     <router-view></router-view>

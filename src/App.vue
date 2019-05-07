@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!--<img src="./assets/logo.png" alt="">-->
     <router-view></router-view>
   </div>
 </template>
@@ -10,10 +11,11 @@
     components: {
     },
     mounted() {
-      if (localStorage.getItem('admin')) {
-        this.$router.push('/login')
+      localStorage.clear();
+      if(!localStorage.getItem("user")){
+        this.$router.push({name:'login'})
       }else{
-        this.$router.push('/home')
+        this.$router.push({name:'home'})
       }
     }
   }
@@ -26,6 +28,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 20px;
+    height: 100%;
   }
 </style>

@@ -8,15 +8,26 @@ import Login from './components/Login'
 import Home from './components/Home'
 import MyBlog from './components/home/MyBlog'
 import AddBlog from './components/home/AddBlog'
+import Release from './components/home/Release'
+import "babel-polyfill"
+
+import Axios from 'axios'
+
+
+//挂载在vue原型上
+Axios.defaults.baseURL = '/apis';
+
+Vue.prototype.$axios=Axios;
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 const router=new VueRouter({
   routes:[
     {path:'/login',name:'login',component:Login},
-    {path:'/home',name:'home',redirect:'/home/my-blog',component:Home,children:[
+    {path:'/home',name:'home',redirect:'/home/release',component:Home,children:[
         {path:'/home/my-blog',name:'myblog',component:MyBlog},
-        {path:'/home/add-blog',name:'addblog',component:AddBlog}
+        {path:'/home/add-blog',name:'addblog',component:AddBlog},
+        {path:'/home/release',name:'release',component:Release}
       ]},
   ],
   mode:'history'
