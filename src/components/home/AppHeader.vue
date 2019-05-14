@@ -10,6 +10,9 @@
       <div class="title release">
         <router-link :to="{name:'release'}"><span>查询/解除绑定</span></router-link>
       </div>
+      <div class="title release">
+        <router-link :to="{name:'batch'}"><span>批量查询</span></router-link>
+      </div>
     </header>
     <router-view></router-view>
   </div>

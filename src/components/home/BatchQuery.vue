@@ -1,5 +1,5 @@
 <template>
-  <h1></h1>
+  <h1>批量查询</h1>
 </template>
 
 <script>

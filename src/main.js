@@ -9,6 +9,8 @@ import Home from './components/Home'
 import MyBlog from './components/home/MyBlog'
 import AddBlog from './components/home/AddBlog'
 import Release from './components/home/Release'
+import Batch from './components/home/BatchQuery'
+
 import "babel-polyfill"
 
 import Axios from 'axios'
@@ -27,7 +29,8 @@ const router=new VueRouter({
     {path:'/home',name:'home',redirect:'/home/release',component:Home,children:[
         {path:'/home/my-blog',name:'myblog',component:MyBlog},
         {path:'/home/add-blog',name:'addblog',component:AddBlog},
-        {path:'/home/release',name:'release',component:Release}
+        {path:'/home/release',name:'release',component:Release},
+        {path:'/home/batch',name:'batch',component:Batch}
       ]},
   ],
   mode:'history'
