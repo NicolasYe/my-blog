@@ -21,6 +21,7 @@
         </li>
         <li>
           <button class="submit" @click="submit">登录</button>
+          <router-link><span>查询/解除绑定</span></router-link>
         </li>
       </ul>
     </div>

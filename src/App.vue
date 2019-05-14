@@ -11,7 +11,7 @@
     components: {
     },
     mounted() {
-      localStorage.clear();
+      // localStorage.clear();
       if(!localStorage.getItem("user")){
         this.$router.push({name:'login'})
       }else{

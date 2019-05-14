@@ -162,7 +162,16 @@
         this.result.interpupillary_distance = user.interpupillary_distance
         this.result.school = user.shcool
         this.result.address = user.address
-        // this.result.devices = [];
+        if(devices.length==0){
+          this.result.noDevice=true;
+        }else{
+          this.result.noDevice=false;
+        }
+        if(records.length==0){
+          this.result.noRecords=true;
+        }else{
+          this.result.noRecords=false;
+        }
         for (var i = 0; i < devices.length; i++) {
           devices[i].regiter_time = new Date(parseInt(devices[i].regiter_time)).toLocaleString().replace(/:\d{1,2}$/, ' ');
           this.result.devices.push(devices[i]);
@@ -173,6 +182,7 @@
         }
       },
       search_phone() {
+        this.result.devices=[];
         if (this.phone == null || this.phone.trim() == '' || this.phone == undefined) {
           alert("请输入手机号")
           return;
@@ -207,12 +217,6 @@
               console.log(res.data.data.experiences);
               if(res.data.status==1){
                 var records=res.data.data.experiences;
-                if(devices.length==0){
-                  this.result.noDevice=true;
-                }
-                if(records.length==0){
-                  this.result.noRecords=true;
-                }
                 this.insertData(user, devices,records);
               }
             })
@@ -220,6 +224,7 @@
         })
       },
       search_bar() {
+        this.result.records=[];
         if (this.bar_code == null || this.bar_code.trim() == '' || this.bar_code == undefined) {
           alert("请输入条码")
           return;
@@ -241,7 +246,7 @@
           }
           var user = res.data.data.user;
           var devices = res.data.data.devices;
-          this.insertData(user, devices);
+          this.insertData(user, devices,[]);
         })
       },
       unbind(index) {
